@@ -24,12 +24,16 @@
     </div>
     <div class="form-group">
         <label for="cpf">CPF:</label>
-        <input type="text" class="form-control" id="cpf" name="cpf" 
-        [(ngModel)]="cliente.cpf"
-        #cpf="ngModel"
-        mask="000.000.000-00"
-        numerico
-        required>
+        <input
+          type="number"
+          class="form-control"
+          id="cpf"
+          name="cpf"
+          [(ngModel)]="cliente.cpf"
+          #cpf="ngModel"
+          brmasker="999.999.999-99"
+          required
+        />
         <div *ngIf="cpf.errors && (cpf.dirty || cpf.touched)" class="alert alert-danger">
         <div [hidden]="!cpf.errors['required']"> Digite o CPF do cliente. </div>
         </div>
