@@ -7,7 +7,6 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { EditarPedidoComponent } from './editar-pedido/editar-pedido.component';
 import { NgForm } from '@angular/forms';
-import { CpfPipe } from '../shared/pipes/cpf.pipe';
 
 
 
@@ -20,8 +19,8 @@ import { CpfPipe } from '../shared/pipes/cpf.pipe';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule,
-    Shared
+    FormsModule
+
 
     ],
     providers: [
