@@ -1,6 +1,7 @@
 <h1>Novo Pedido</h1>
 <div class="well">
  <form #formPedido="ngForm">
+
  <div class="form-group">
  <label for="data">Data:</label>
  <input type="text" class="form-control" id="data" name="data"
@@ -12,35 +13,42 @@
  <div [hidden]="!data.errors['required']"> Digite a data do pedido. </div>
   </div>
  </div>
+
  <div class="form-group">
     <label for="produtos">Produtos:</label>
     <input type="text" class="form-control" id="produtos" name="produtos"
     [(ngModel)]="pedido.produtos"
     #produtos="ngModel"
     required>
-    <div [hidden]="!produtos.errors?.['required']" 
-    class="alert alert-danger">
-    <div> Digite os produtos do pedido. </div>
+    <div *ngIf="produtos.errors && (produtos.dirty || produtos.touched)"   
+    class="alert alert-danger">   
+    <div [hidden]="!produtos.errors['required']" > Digite os produtos do pedido. </div>
     </div>
+ </div>
+
  <div class="form-group">
     <label for="quantidade">Quantidade:</label>
     <input type="text" class="form-control" id="quantidade" name="quantidade"
     [(ngModel)]="pedido.quantidade"
     #quantidade="ngModel"
      required>
-    <div [hidden]="!quantidade.errors?.['required']" class="alert alert-danger">
-    <div > Digite a quantidade de produtos do pedido. </div>
+     <div *ngIf="quantidade.errors && (quantidade.dirty || quantidade.touched)"
+      class="alert alert-danger">
+    <div [hidden]="!quantidade.errors['required']" > Digite a quantidade de produtos do pedido. </div>
     </div>
-    </div>
-            <div class="form-group">
-            <label for="cpf">CPF:</label>
-            <input type="number" class="form-control" id="cpf" name="cpf"
-            [(ngModel)]="pedido.cpf"
-            #cpf="ngModel" brmasker="999.999.999-99"
-            required>
-            <div *ngIf="cpf.errors && (cpf.dirty || cpf.touched)" class="alert alert-danger">
-               <div [hidden]="!cpf.errors['required']"> Digite o cpf do pedido. </div>
-            </div>
+    </div>  
+    
+    
+      <div class="form-group">
+      <label for="cpf">CPF:</label>
+      <input type="number" class="form-control" id="cpf" name="cpf"
+      [(ngModel)]="pedido.cpf"
+      #cpf="ngModel" brmasker="999.999.999-99"
+      required>
+      <div *ngIf="cpf.errors && (cpf.dirty || cpf.touched)" class="alert alert-danger">
+      <div [hidden]="!cpf.errors['required']"> Digite o cpf do pedido. </div>
+      </div>
+
     <div class="form-group">
     <button type="button" class="btn btn-primary"
         (click)="inserir()"
