@@ -17,6 +17,7 @@
     <td> {{cliente.nome}} </td>
     <td> {{cliente.sobrenome}} </td>
     <td> {{cliente.cpf! | cpf}} </td>
+    
     <td class="text-center" style="width: 300px">
         <a [routerLink]="['/cliente/editar', cliente.id]" 
      href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info">
