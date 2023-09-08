@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Pedidos } from 'src/app/shared/models/pedidos.model';
 import { PedidosService } from '../service/pedidos.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Produtos } from 'src/app/shared/models/produtos.model';
+import { ProdutosService } from 'src/app/produtos/service/produtos.service';
 
 @Component({
   selector: 'app-editar-pedido',
@@ -13,14 +15,17 @@ export class EditarPedidoComponent implements OnInit {
 
   @ViewChild("formPedido") formPedido!: NgForm;
   pedido!: Pedidos;
+  produtos: Produtos [] = [];
 
   constructor(
     private pedidosService: PedidosService,
+    private produtoService: ProdutosService,
     private route: ActivatedRoute,
     private router: Router
   ){}
 
   ngOnInit(): void {
+    this.produtos = this.produtoService.listarTodos();
     let id = +this.route.snapshot.params['id'];
     const res = this.pedidosService.buscarPorId(id);
 

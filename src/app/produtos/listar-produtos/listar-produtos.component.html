@@ -13,8 +13,8 @@
  </tr>
  <tr *ngFor="let produto of produtos">
     <td> {{produto.descricao}} </td>
-    <td class="text-center" style="width: 300px">
-    <a [routerLink]="['/produtos/editar', produto.id]"
+    
+    <td class="text-center" style="width: 300px">  <a [routerLink]="['/produtos/editar', produto.id]"
     href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info">
     <i class="fa fa-edit" aria-hidden="true"></i> Editar
     </a>
