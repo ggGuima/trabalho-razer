@@ -13,12 +13,13 @@
  </div>
  <div class="form-group">
     <label for="prdutos">Produtos:</label>
-    <input type="text" class="form-control" id="produtos" name="produtos"
+
+    <ng-select name="produto" [items]="produtos"
+    bindLabel="itens"
     [(ngModel)]="pedido.produtos"
-    #produtos="ngModel"
-    required>
-    <div [hidden]="!produtos.errors?.['required']" class="alert alert-danger">
-    <div> Digite os produtos do pedido.</div>
+    placeholder="Selecione um produto">
+    </ng-select>
+
     </div>
  <div class="form-group">
     <label for="quantidade">Quantidade:</label>
