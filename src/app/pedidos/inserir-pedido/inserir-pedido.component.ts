@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Pedidos } from 'src/app/shared/models/pedidos.model';
 import { PedidosService } from '../service/pedidos.service';
 import { Router } from '@angular/router';
+import { ProdutosService } from 'src/app/produtos/service/produtos.service';
+import { Produtos } from 'src/app/shared/models/produtos.model';
 
 @Component({
   selector: 'app-inserir-pedido',
@@ -15,14 +17,19 @@ export class InserirPedidoComponent implements OnInit {
 
   @ViewChild('formPedido') formPedido! : NgForm;
   pedido!: Pedidos;
+  produto: Produtos [] = [];
+
+
 
   constructor(
     private pedidosService: PedidosService,
-    private router: Router
+    private router: Router,
+    private produtoService : ProdutosService
   ){}
 
   ngOnInit(): void {
     this.pedido = new Pedidos();
+    this.produto= this.produtoService.listarTodos();
 
   }
 

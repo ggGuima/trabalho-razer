@@ -9,34 +9,63 @@ import { EditarProdutoComponent } from './produtos/editar-produto/editar-produto
 import { ListarPedidosComponent } from './pedidos/listar-pedidos/listar-pedidos.component';
 import { InserirPedidoComponent } from './pedidos/inserir-pedido/inserir-pedido.component';
 import { EditarPedidoComponent } from './pedidos/editar-pedido/editar-pedido.component';
+import { LoginComponent } from './auth/login/login.component';
+import { LoginRoutes } from './auth/auth-routing.module';
+import { AuthGuard } from './auth/auth.guard';
+import { HomeComponent } from './home/home.component';
+
 
 const routes: Routes = [
 
-  {path: '',
-  redirectTo: 'cliente/listar',
-  pathMatch: 'full'},
 
-  {path:'cliente',
-  redirectTo: 'cliente/listar'},
+  {
+      path: '',
+      redirectTo: 'login',
+      pathMatch: 'full'    },
 
-  {path: 'cliente/listar',
-  component: ListarClienteComponent},
+  {
+    path:'cliente',
+    redirectTo: 'cliente/listar'},
 
-  {path: 'cliente/novo',
-  component: InserirClienteComponent},
+  {
+    path: 'cliente/listar',
+    component: ListarClienteComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,GERENTE,FUNC'}},
 
-  {path: 'cliente/editar/:id',
-  component: EditarClienteComponent },
 
-  {path: 'produtos',
-  redirectTo: 'produtos/listar'},
+  {
+    path: 'cliente/novo',
+    component: InserirClienteComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,GERENTE,FUNC'}},
+
+  {
+    path: 'cliente/editar/:id',
+    component: EditarClienteComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,GERENTE,FUNC'}},
+
+  {
+    path: 'produtos',
+    redirectTo: 'produtos/listar'},
 
   {path: 'produtos/listar',
-  component: ListarProdutosComponent},
+  component: ListarProdutosComponent,
+  canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,GERENTE'} },
 
   {path: 'produtos/novo',
-  component: InserirProdutoComponent},
+  component: InserirProdutoComponent,
+  canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,GERENTE'}},  
 
+  
   {path: 'produtos/editar/:id',
   component: EditarProdutoComponent},
 
@@ -44,13 +73,33 @@ const routes: Routes = [
   redirectTo: 'pedidos/listar'},
 
   {path: 'pedidos/listar',
-  component: ListarPedidosComponent},
+  component: ListarPedidosComponent,
+  canActivate: [AuthGuard],
+  data: {
+  role: 'ADMIN,GERENTE,FUNC'} },
 
   {path: 'pedidos/novo',
-  component: InserirPedidoComponent},
+  component: InserirPedidoComponent,
+  canActivate: [AuthGuard],
+  data: {
+  role: 'ADMIN,GERENTE,FUNC'}}, 
 
   {path: 'pedidos/editar/:id',
-  component: EditarPedidoComponent}
+  component: EditarPedidoComponent,
+  canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,GERENTE,FUNC'}},
+
+  {
+  path: 'home',
+  component: HomeComponent,
+  canActivate: [AuthGuard],
+  data: {
+  role: 'ADMIN,GERENTE,FUNC'
+  }
+  },
+ 
+...LoginRoutes
 ];
 
 @NgModule({

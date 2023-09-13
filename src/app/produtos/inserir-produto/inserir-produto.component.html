@@ -1,5 +1,6 @@
 <h1>Novo Produto</h1>
 <div class="well">
+
  <form #formProduto="ngForm">
  <div class="form-group">
  <label for="descricao">Descrição:</label>
@@ -12,14 +13,16 @@
  <div [hidden]="!descricao.errors['minlength']"> O produto deve conter ao menos 2 caracteres. </div>
  </div>
  </div>
+
     <div class="form-group">
     <button type="button" class="btn btn-primary"
         (click)="inserir()"
         [disabled]="!formProduto.form.valid">
+
     <i class="fa fa-save" aria-hidden="true"></i> Salvar
     </button>
-    <a class="btn btn-secondary"
-    [routerLink]="['/produtos']">
+    <a class="btn btn-secondary"  [routerLink]="['/produtos']">
+
     <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
     </a>
     </div>
