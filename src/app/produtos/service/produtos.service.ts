@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Produtos } from 'src/app/shared/models/produtos.model';
 
 
-const LS_CHAVE: string = "produtos";
+const LS_CHAVE: string = "produto";
 
 
 @Injectable({

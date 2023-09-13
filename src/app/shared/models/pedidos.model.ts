@@ -6,6 +6,7 @@ export class Pedidos {
     public data?: string ,
     public quantidade?: string,
     public produtos?: Produtos,
-    public cpf?: string
+    public cpf?: string,
+    public itens?: string
   ) {}
 }
