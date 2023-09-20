@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClienteModule } from './cliente/cliente.module';
@@ -16,6 +16,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginService } from './auth/services/login.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './auth/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UsuarioModule } from './usuario/usuario.module';
+import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
+
 
 
 
@@ -27,7 +31,7 @@ import { LoginComponent } from './auth/login/login.component';
     
   ],
 
-  imports: [
+  imports: [ 
 
     BrowserModule,
     AppRoutingModule,
@@ -39,6 +43,9 @@ import { LoginComponent } from './auth/login/login.component';
     NgSelectModule,
     AuthModule,
     BrowserAnimationsModule,
+    HttpClientModule, 
+    RouterModule
+    
     
     
   ],
