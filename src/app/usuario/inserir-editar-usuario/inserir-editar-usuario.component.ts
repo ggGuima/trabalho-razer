@@ -1,10 +1,14 @@
 import { Component, ViewChild , OnInit} from '@angular/core';
 import { Usuario } from 'src/app/shared';
-import { NgForm } from '@angular/forms';
+import { NgForm, NgModel} from '@angular/forms';
 import { UsuarioService } from 'src/app/auth/services/usuario.service';
-import { Route, Router } from '@angular/router';
+import { Route, Router, RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+
+
+
 
 @Component({
   selector: 'app-inserir-editar-usuario',

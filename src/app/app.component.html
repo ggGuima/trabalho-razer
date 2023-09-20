@@ -19,24 +19,17 @@
         </li>
 
 
-        <li *ngIf="usuarioLogado.perfil==='ADMIN' || usuarioLogado.perfil==='GERENTE'" class="nav-item">
-        <a class="nav-link" href="#" routerLink="/pedidos">Pedidos</a>
-        </li>
-
-
           
       <li class="nav-item" ngbDropdown>
 
         <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">  Serviços </a>
 
         <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
-          <a ngbDropdownItem href="#" routerLink="/cliente"  (click)="$event.preventDefault()">Clientes</a>
+         
 
-          <a *ngIf="usuarioLogado.perfil==='ADMIN'"
+          <a *ngIf="usuarioLogado.perfil==='ADMIN'|| usuarioLogado.perfil==='FUNC' || usuarioLogado.perfil==='GERENTE'"
         ngbDropdownItem href="#" routerLink="/pedidos" (click)="$event.preventDefault()">Pedidos</a>
-
-          <a *ngIf="usuarioLogado.perfil==='ADMIN' || usuarioLogado.perfil==='FUNC'"
-        ngbDropdownItem href="#" routerLink="/produto"  (click)="$event.preventDefault()">Produtos</a>
+          
 
         </div>
       </li>

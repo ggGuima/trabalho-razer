@@ -6,6 +6,7 @@ import { ModalUsuarioComponent } from '../modal-usuario/modal-usuario.component'
 import { Router, Route } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
+
 @Component({
   selector: 'app-listar-usuario',
   templateUrl: './listar-usuario.component.html',

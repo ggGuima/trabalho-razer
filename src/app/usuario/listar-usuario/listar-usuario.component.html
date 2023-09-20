@@ -6,10 +6,8 @@
 <th>Nome</th>
 <th>Login</th>
 <th>Perfil</th>
-<th class="text-center">
-<a [routerLink]="['/usuarios/novo']" href="#"
-title="Novo" alt="Novo"
-class="btn btn-xs btn-success">
+<th class="text-center"> 
+<a> [routerLink]="['/usuarios/novo']" href="#" title="Novo" alt="Novo" class="btn btn-xs btn-success">
 <i class="fa fa-edit" aria-hidden="true"></i>
 Novo
 </a>
@@ -19,18 +17,19 @@ Novo
 <td> {{usuario.nome }} </td>
 <td> {{usuario.login}} </td>
 <td> {{usuario.perfil}} </td>
+
 <td class="text-center" style="width: 300px">
 <button type="button" class="btn btn-xs btn-info"
 (click)="abrirModal(usuario)">
 <i class="fa fa-eye" aria-hidden="true"></i>
 Ver
 </button>
-<a [routerLink]="['/usuarios/editar', usuario.id]"
-href="#" title="Editar" alt="Editar"
-class="btn btn-xs btn-warning">
+
+ <a> [routerLink]="['/usuarios/editar',usuario.id]" href="#" title="Editar" alt="Editar" class="btn btn-xs btn-warning">
 <i class="fa fa-times" aria-hidden="true"></i>
 Editar
 </a>
+
 <a href="#" title="Remover" alt="Remover"
 class="btn btn-xs btn-danger"
 (click)="remover($event, usuario)">
@@ -41,10 +40,4 @@ Remover
 </tr>
 </tbody>
 </table>
-<p *ngIf="usuarios.length==0">Nenhum usuário cadastrado.</p>
-
-
-
-
-
-
+<p>*ngIf="usuarios.length==0">Nenhum usuário cadastrado.</p>
