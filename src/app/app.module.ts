@@ -16,6 +16,9 @@ import { HomeComponent } from './home/home.component';
 import { LoginService } from './auth/services/login.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './auth/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UsuarioModule } from './usuario/usuario.module';
+
 
 
 
@@ -39,6 +42,7 @@ import { LoginComponent } from './auth/login/login.component';
     NgSelectModule,
     AuthModule,
     BrowserAnimationsModule,
+    HttpClientModule
     
     
   ],
