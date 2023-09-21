@@ -12,7 +12,7 @@ import { HttpHeaders } from '@angular/common/http';
 export class LoginService {
 
 
-  BASE_URL = "http://localhost:8080/login/";
+  BASE_URL = "http://localhost:8081/usuarios/";
 httpOptions = {
 headers: new HttpHeaders({
 'Content-Type': 'application/json'
@@ -34,8 +34,8 @@ constructor(private httpClient: HttpClient) { }
     delete localStorage[this.LS_CHAVE];
     }
 
-    login(login: Login): Observable<Usuario | null> {
-
+    login(login: Login): Observable<Usuario> {
+      
       return this.httpClient.post<Usuario>(this.BASE_URL,login,this.httpOptions);
       }
 

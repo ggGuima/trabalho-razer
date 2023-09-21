@@ -10,7 +10,7 @@ import { Usuario } from 'src/app/shared';
 export class UsuarioService {
 
 
-  BASE_URL = "http://localhost:3000/usuarios/";
+  BASE_URL = "http://localhost:8081/usuarios/";
 httpOptions = {
 headers: new HttpHeaders({
 'Content-Type': 'application/json'
