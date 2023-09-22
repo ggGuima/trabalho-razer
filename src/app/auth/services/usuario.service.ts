@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/shared';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { Usuario } from 'src/app/shared';
 export class UsuarioService {
 
 
-  BASE_URL = "http://localhost:8081/usuarios/";
+  BASE_URL : string = environment.BASE_URL + "usuarios/";
 httpOptions = {
 headers: new HttpHeaders({
 'Content-Type': 'application/json'
