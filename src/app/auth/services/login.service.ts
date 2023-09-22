@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Usuario, Login } from 'src/app/shared';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +10,15 @@ import { Usuario, Login } from 'src/app/shared';
 
 
 export class LoginService {
+
+
+  BASE_URL = "http://localhost:8080/login";
+httpOptions = {
+headers: new HttpHeaders({
+'Content-Type': 'application/json'
+})
+};
+constructor(private httpClient: HttpClient) { }
 
   private LS_CHAVE: string = "usuarioLogado";
 
@@ -23,23 +34,9 @@ export class LoginService {
     delete localStorage[this.LS_CHAVE];
     }
 
-    login(login: Login): Observable<Usuario | null> {
-      let usu = new Usuario(1, "Razer-Func",
-      login.login, login.senha, "FUNC");
-      if (login.login == login.senha) {
-      if (login.login == "admin") {
-      usu = new Usuario(1, "Razer-Admin",
-      login.login, login.senha, "ADMIN");
-      }
-      else if (login.login == "gerente") {
-      usu = new Usuario(1, "Razer-Gerente",
-      login.login, login.senha, "GERENTE");
-      }
-      return of(usu);
-      }
-      else {
-      return of(null);
-      }
+    login(login: Login): Observable<Usuario> {
+      
+      return this.httpClient.post<Usuario>(this.BASE_URL,login,this.httpOptions);
       }
 
     }
